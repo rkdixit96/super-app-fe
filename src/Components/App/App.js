@@ -111,7 +111,7 @@ class App extends Component {
       <div className="App" >
         <Header title="E-Shopper" onBasketClick={this.onBasketClick} />
         {this.state.page === 'shop' && <ShoppingBody categorizedData={this.state.categorizedData} onCartModify={this.onCartModify} />}
-        {this.state.page === 'basket' && <BasketBody basketData={this.state.basket} />}
+        {this.state.page === 'basket' && <BasketBody basketData={this.state.basket} inventoryData={this.state.categorizedData} />}
       </div>
     );
   }
