@@ -4,6 +4,7 @@ import './BasketCategory.css';
 
 import BasketItem from '../BasketItem/BasketItem';
 
+
 class BasketCategory extends Component {
   constructor(props) {
     super(props);
@@ -24,11 +25,11 @@ class BasketCategory extends Component {
 
   render() {
     return (
-      <div className="category-main" >
-        <div className="category-header">
+      <div className="BasketCategory" >
+        <div className="basket-category-title" >
           {this.props.category}
         </div>
-        <div className="BasketCategory" >
+        <div >
           {this.populateItems()}
         </div>
       </div>

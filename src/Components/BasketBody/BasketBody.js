@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Axios from 'axios';
 import './BasketBody.css';
+
 import BasketCategory from '../BasketCategory/BasketCatergory';
+import UnderlineHeading from '../UnderlineHeading/UnderlineHeading';
+import TableHeader from '../TableHeader/TableHeader';
 
 const Helpers = require('../../helpers');
 
@@ -54,6 +57,8 @@ class BasketBody extends Component {
   render() {
     return (
       <div className="BasketBody" >
+        <UnderlineHeading title={`Your Basket (${this.props.numberOfItems} items)`} className="basket-heading" />
+        <TableHeader />
         <div>
           {this.populateCategories()}
         </div>

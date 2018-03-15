@@ -11,4 +11,28 @@
 .header-buttons{
     display: flex;
     flex-direction: row;
+    
+}
+
+.header-title{
+    font-weight: bold;
+    display: flex;
+    align-content: center;
+    
+}
+
+.header-order{
+    color: gray;
+    padding-right: 9%;
+}
+
+.header-basket{
+    display: flex;
+    font-size: 8px;
+    
+}
+
+.header-basket-text{
+    display: flex;
+    flex-direction: column;
 }

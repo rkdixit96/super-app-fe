@@ -18,11 +18,22 @@ class BasketItem extends Component {
   render() {
     return (
       <div className="BasketItem" >
-        <div>
-          {this.props.title}
+        <div className="item-description">
+          <div className="item-brand">
+            {this.props.brand}
+          </div>
+          <div>
+            {this.props.title}
+          </div>
+        </div >
+        <div className="item-other">
+          {`Rs. ${this.props.cost}`}
         </div>
-        <div>
+        <div className="item-other">
           {this.props.availableQuantity}
+        </div>
+        <div className="item-other">
+          {`Rs. ${this.props.availableQuantity * this.props.cost}`}
         </div>
 
       </div>

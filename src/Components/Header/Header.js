@@ -14,25 +14,50 @@ class Header extends Component {
     this.state = {
     };
 
-    this.handleOnClick = this.handleOnClick.bind(this);
+    this.onBasketClick = this.onBasketClick.bind(this);
+    this.onOrderClick = this.onOrderClick.bind(this);
+    this.onShopClick = this.onShopClick.bind(this);
   }
 
-  handleOnClick() {
+  onBasketClick() {
     this.props.onBasketClick();
+  }
+
+  onOrderClick() {
+    this.props.onOrderClick();
+  }
+
+  onShopClick() {
+    this.props.onShopClick();
   }
 
   render() {
     return (
       <div className="Header" >
-        <div>
-          {this.props.title}
+        <div className="header-title" onClick={this.onShopClick}>
+          <div>
+            <i className="material-icons">shopping_cart</i>
+          </div>
+          <div>
+            {this.props.title}
+          </div>
         </div>
         <div className="header-buttons">
-          <div>
+          <div onClick={this.onOrderClick} className="header-order">
             All Orders
           </div>
-          <div onClick={this.handleOnClick}>
-            My basket
+          <div onClick={this.onBasketClick} className="header-basket">
+            <div>
+              <i className="material-icons">shopping_basket</i>
+            </div>
+            <div className="header-basket-text">
+              <div>
+              My basket
+              </div>
+              <div>
+                {`${this.props.numberOfItems} items`}
+              </div>
+            </div>
           </div>
         </div>
       </div>

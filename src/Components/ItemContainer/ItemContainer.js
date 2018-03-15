@@ -19,6 +19,7 @@ class ItemContainer extends Component {
   render() {
     return (
       <div className="ItemContainer" >
+        <img src={this.props.imageUrl} width="40" alt="twitter" />
         <div>
           {this.props.title}
         </div>

@@ -5,6 +5,9 @@ import './App.css';
 import Header from '../Header/Header';
 import ShoppingBody from '../ShoppingBody/ShoppingBody';
 import BasketBody from '../BasketBody/BasketBody';
+import OrderBody from '../OrderBody/OrderBody';
+
+const Helpers = require('../../helpers');
 
 class App extends Component {
   constructor() {
@@ -12,6 +15,7 @@ class App extends Component {
     this.state = {
       categorizedData: {},
       basket: {},
+      numberOfItems: 0,
       page: 'shop',
     };
 
@@ -19,6 +23,8 @@ class App extends Component {
     this.onCartModify = this.onCartModify.bind(this);
     this.basketModifier = this.basketModifier.bind(this);
     this.onBasketClick = this.onBasketClick.bind(this);
+    this.onOrderClick = this.onOrderClick.bind(this);
+    this.onShopClick = this.onShopClick.bind(this);
   }
 
 
@@ -31,9 +37,21 @@ class App extends Component {
     });
   }
 
+  onShopClick() {
+    this.setState({
+      page: 'shop',
+    });
+  }
+
   onBasketClick() {
     this.setState({
       page: 'basket',
+    });
+  }
+
+  onOrderClick() {
+    this.setState({
+      page: 'order',
     });
   }
 
@@ -59,6 +77,7 @@ class App extends Component {
   }
 
   basketModifier(category, item, action) {
+    let numberOfItems = this.state.numberOfItems;
     const basketCopy = Object.assign({}, this.state.basket);
     // If category does not exits add it
     if (!basketCopy.hasOwnProperty(category)) {
@@ -73,9 +92,11 @@ class App extends Component {
         idDoesNotExist = false;
         if (action === '+') {
           iterItem.availableQuantity += 1;
+          numberOfItems += 1;
         }
         if (action === '-') {
           iterItem.availableQuantity -= 1;
+          numberOfItems -= 1;
         }
         break;
       }
@@ -85,11 +106,13 @@ class App extends Component {
       if (action === '+') {
         const itemCopy = Object.assign({}, item);
         itemCopy.availableQuantity = 1;
+        numberOfItems += 1;
         basketCopy[category].push(itemCopy);
       }
     }
     this.setState({
       basket: basketCopy,
+      numberOfItems,
     });
   }
 
@@ -109,9 +132,10 @@ class App extends Component {
   render() {
     return (
       <div className="App" >
-        <Header title="E-Shopper" onBasketClick={this.onBasketClick} />
+        <Header title="E-Shopper" onBasketClick={this.onBasketClick} numberOfItems={this.state.numberOfItems} onOrderClick={this.onOrderClick} onShopClick={this.onShopClick} />
         {this.state.page === 'shop' && <ShoppingBody categorizedData={this.state.categorizedData} onCartModify={this.onCartModify} />}
-        {this.state.page === 'basket' && <BasketBody basketData={this.state.basket} inventoryData={this.state.categorizedData} />}
+        {this.state.page === 'basket' && <BasketBody basketData={this.state.basket} inventoryData={this.state.categorizedData} numberOfItems={this.state.numberOfItems} />}
+        {this.state.page === 'order' && <OrderBody />}
       </div>
     );
   }

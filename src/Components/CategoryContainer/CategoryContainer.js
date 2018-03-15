@@ -20,7 +20,7 @@ class CategoryContainer extends Component {
   }
 
   populateItems() {
-    return this.props.items.map(item => <ItemContainer id={item.id} title={item.title} availableQuantity={item.availableQuantity} brand={item.brand} category={item.category} cost={item.cost} description={item.description} onCartModify={this.props.onCartModify} />);
+    return this.props.items.map(item => <ItemContainer id={item.id} title={item.title} availableQuantity={item.availableQuantity} brand={item.brand} category={item.category} cost={item.cost} description={item.description} imageUrl={item.imageUrl} onCartModify={this.props.onCartModify} />);
   }
 
   render() {

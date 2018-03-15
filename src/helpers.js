@@ -7,4 +7,15 @@ const objectToArray = (object) => {
   return result;
 };
 
-module.exports = { objectToArray };
+const groupDataBasedOnKey = (data, key) => {
+  const groupedData = {};
+  data.forEach((element) => {
+    if (groupedData[element[key]] === undefined) {
+      groupedData[element[key]] = [];
+    }
+    groupedData[element[key]].push(element);
+  }, this);
+  return groupedData;
+};
+
+module.exports = { objectToArray, groupDataBasedOnKey };

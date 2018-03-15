@@ -1,0 +1,30 @@
+.BasketBody{
+    padding-left: 4%;
+    padding-right: 4%;
+}
+
+.basket-header{
+    display: flex;
+    background-color: rgb(85, 85, 85);
+    color:white;
+    padding-top:1%;
+    padding-bottom: 1%;
+}
+
+.basket-heading{
+    font-size:26px;
+    padding-top:2%;
+    color: gray;
+}
+
+.item-description{
+    width:60%;
+    padding-left: 3%;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-other{
+    width:13%;
+    align-content: center;
+}
