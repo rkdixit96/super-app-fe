@@ -1,0 +1,14 @@
+.Header{
+    display: flex;
+    background-color:white;
+    height: 8%;
+    align-content: center;
+    padding: 2%;
+    border: 1px solid gray;
+    justify-content: space-between;
+}
+
+.header-buttons{
+    display: flex;
+    flex-direction: row;
+}
