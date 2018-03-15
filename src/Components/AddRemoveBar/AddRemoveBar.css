@@ -1,0 +1,4 @@
+.AddRemoveBar{
+    display: flex;
+    flex-direction: row;
+}

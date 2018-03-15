@@ -13,7 +13,14 @@ class Header extends Component {
     };
     this.state = {
     };
+
+    this.handleOnClick = this.handleOnClick.bind(this);
   }
+
+  handleOnClick() {
+    this.props.onBasketClick();
+  }
+
   render() {
     return (
       <div className="Header" >
@@ -24,7 +31,7 @@ class Header extends Component {
           <div>
             All Orders
           </div>
-          <div>
+          <div onClick={this.handleOnClick}>
             My basket
           </div>
         </div>
