@@ -6,23 +6,13 @@ class TableHeader extends Component {
   constructor(props) {
     super(props);
     TableHeader.propTypes = {
+      className: PropTypes.string,
     };
     TableHeader.defaultProps = {
+      className: '',
     };
     this.state = {
     };
-  }
-
-  onBasketClick() {
-    this.props.onBasketClick();
-  }
-
-  onOrderClick() {
-    this.props.onOrderClick();
-  }
-
-  onShopClick() {
-    this.props.onShopClick();
   }
 
   render() {

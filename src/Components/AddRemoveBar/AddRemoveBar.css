@@ -6,3 +6,7 @@
 .button-center-text{
     background-color: rgb(251, 231, 137)
 }
+
+.button-center-text-sold{
+    background-color: red;
+}

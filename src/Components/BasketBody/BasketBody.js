@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Axios from 'axios';
 import './BasketBody.css';
 
 import BasketCategory from '../BasketCategory/BasketCatergory';
 import UnderlineHeading from '../UnderlineHeading/UnderlineHeading';
 import TableHeader from '../TableHeader/TableHeader';
 
-const Helpers = require('../../helpers');
-
 
 class BasketBody extends Component {
   constructor(props) {
     super(props);
     BasketBody.propTypes = {
-
+      onCheckOut: PropTypes.func.isRequired,
+      onDeleteItem: PropTypes.func.isRequired,
+      showButton: PropTypes.bool.isRequired,
+      basketData: PropTypes.shape({}).isRequired,
+      numberOfItems: PropTypes.number.isRequired,
+      cost: PropTypes.number.isRequired,
     };
     BasketBody.defaultProps = {
 
@@ -23,38 +25,22 @@ class BasketBody extends Component {
     };
 
     this.populateCategories = this.populateCategories.bind(this);
-    this.calculateCost = this.calculateCost.bind(this);
     this.onCheckOut = this.onCheckOut.bind(this);
   }
-
-  componentDidMount() {
-    this.calculateCost();
-  }
-  componentWillReceiveProps() {
-    this.calculateCost();
-  }
-
 
   onCheckOut() {
     this.props.onCheckOut();
   }
 
-
   populateCategories() {
-    return Object.keys(this.props.basketData).map(category => <BasketCategory category={category} items={this.props.basketData[category]} onDeleteItem={this.props.onDeleteItem} showButton={this.props.showButton} />);
+    return Object.keys(this.props.basketData).map(category =>
+      (<BasketCategory
+        category={category}
+        items={this.props.basketData[category]}
+        onDeleteItem={this.props.onDeleteItem}
+        showButton={this.props.showButton}
+      />));
   }
-
-  calculateCost() {
-    const items = Helpers.objectToArray(this.props.basketData);
-    let cost = 0;
-    items.forEach((item) => {
-      cost += item.cost * item.availableQuantity;
-    });
-    this.setState({
-      cost,
-    });
-  }
-
 
   render() {
     return (

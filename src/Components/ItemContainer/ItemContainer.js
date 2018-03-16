@@ -9,23 +9,27 @@ class ItemContainer extends Component {
     super(props);
     ItemContainer.propTypes = {
       title: PropTypes.string,
+      className: PropTypes.string,
+      imageUrl: PropTypes.string.isRequired,
+      brand: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      cost: PropTypes.number.isRequired,
+      category: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
+      onCartModify: PropTypes.func.isRequired,
     };
     ItemContainer.defaultProps = {
       title: 'default',
+      className: '',
     };
     this.state = {
     };
   }
 
-  onCartModify() {
-    this.props.onCartModify;
-  }
-
-
   render() {
     return (
-      <div className="ItemContainer" >
-        <img src={this.props.imageUrl} width="60" alt="twitter" className="item-image" />
+      <div className={`ItemContainer ${this.props.className}`} >
+        <img src={this.props.imageUrl} width="100" height="80" alt="twitter" className="item-image" />
         <div className="shop-item-brand">
           {this.props.brand}
         </div>

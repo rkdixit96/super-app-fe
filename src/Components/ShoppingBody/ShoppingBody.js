@@ -8,10 +8,10 @@ class ShoppingBody extends Component {
   constructor(props) {
     super(props);
     ShoppingBody.propTypes = {
-      title: PropTypes.string,
+      onCartModify: PropTypes.func.isRequired,
+
     };
     ShoppingBody.defaultProps = {
-      title: 'default',
     };
     this.state = {
     };

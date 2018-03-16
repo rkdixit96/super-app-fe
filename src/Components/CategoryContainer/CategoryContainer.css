@@ -12,7 +12,9 @@
 }
 
 .category-header{
-    padding-top:1%;
-    padding-bottom: 1%;
+    padding-top:2%;
+    padding-bottom: 2%;
+    font-size: 20px;
+    font-weight: lighter;
     
 }

@@ -12,7 +12,9 @@ class OrderContainer extends Component {
   constructor(props) {
     super(props);
     OrderContainer.propTypes = {
-
+      id: PropTypes.number.isRequired,
+      items: PropTypes.arrayOf.isRequired,
+      date: PropTypes.string.isRequired,
     };
     OrderContainer.defaultProps = {
     };

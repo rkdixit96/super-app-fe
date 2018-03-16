@@ -9,7 +9,7 @@ class BasketCategory extends Component {
   constructor(props) {
     super(props);
     BasketCategory.propTypes = {
-
+      items: PropTypes.arrayOf.isRequired,
     };
     BasketCategory.defaultProps = {
     };

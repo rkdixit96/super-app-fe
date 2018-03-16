@@ -8,9 +8,15 @@ class BasketItem extends Component {
     super(props);
     BasketItem.propTypes = {
       title: PropTypes.string,
+      brand: PropTypes.string.isRequired,
+      cost: PropTypes.number.isRequired,
+      availableQuantity: PropTypes.number.isRequired,
+      showButton: PropTypes.bool,
+      onDeleteItem: PropTypes.func.isRequired,
     };
     BasketItem.defaultProps = {
       title: 'default',
+      showButton: false,
     };
     this.state = {
     };

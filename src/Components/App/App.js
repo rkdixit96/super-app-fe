@@ -42,13 +42,15 @@ class App extends Component {
 
   onCheckOut() {
     // const items = Helpers.objectToArray(this.props.basketData);
-    Axios.post('/order', { basketData: this.state.basket, inventoryData: this.state.categorizedData }).then(() => {
-      this.setState({
-        basket: {},
-        page: 'order',
-        numberOfItems: 0,
+    if (Object.keys(this.state.basket).length !== 0) {
+      Axios.post('/order', { basketData: this.state.basket, inventoryData: this.state.categorizedData }).then(() => {
+        this.setState({
+          basket: {},
+          page: 'order',
+          numberOfItems: 0,
+        });
       });
-    });
+    }
   }
 
 

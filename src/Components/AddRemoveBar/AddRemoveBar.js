@@ -13,9 +13,15 @@ class AddRemoveBar extends Component {
     };
     this.state = {
       count: 0,
+      disabled: false,
     };
 
     this.addRemove = this.addRemove.bind(this);
+    this.checkDisabled = this.checkDisabled.bind(this);
+  }
+
+  componentDidMount() {
+    this.checkDisabled();
   }
 
   addRemove(event) {
@@ -36,15 +42,28 @@ class AddRemoveBar extends Component {
     this.props.onCartModify(this.props.category, this.props.id, event.target.value);
   }
 
+
+  checkDisabled() {
+    if (this.props.item.availableQuantity === 0) {
+      this.setState({
+        disabled: true,
+      });
+      return;
+    }
+    this.setState({
+      disabled: false,
+    });
+  }
+
   render() {
     return (
       <div className="AddRemoveBar" >
-        <input type="button" value="-" onClick={this.addRemove} />
-        <div className="button-center-text">
-          {`${this.state.count} in basket`}
-
+        <input type="button" value="-" onClick={this.addRemove} disabled={this.state.disabled} />
+        <div>
+          {(this.props.item.availableQuantity !== 0) && (<div className="button-center-text"> {`${this.state.count} in basket`} </div>)}
+          {(this.props.item.availableQuantity === 0) && (<div className="button-center-text-sold"> SOLD OUT </div>)}
         </div>
-        <input type="button" value="+" onClick={this.addRemove} />
+        <input type="button" value="+" onClick={this.addRemove} disabled={this.state.disabled} />
       </div>
     );
   }

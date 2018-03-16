@@ -7,9 +7,13 @@ class UnderlineHeading extends Component {
     super(props);
     UnderlineHeading.propTypes = {
       title: PropTypes.string,
+      onBasketClick: PropTypes.func.isRequired,
+      onOrderClick: PropTypes.func.isRequired,
+      className: PropTypes.string,
     };
     UnderlineHeading.defaultProps = {
       title: 'default',
+      className: '',
     };
     this.state = {
     };
