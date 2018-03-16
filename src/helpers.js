@@ -2,7 +2,9 @@ const objectToArray = (object) => {
   const keys = Object.keys(object);
   let result = [];
   keys.forEach((key) => {
-    result = result.concat(object[key][0]);
+    object[key].forEach((item) => {
+      result = result.concat(item);
+    });
   });
   return result;
 };

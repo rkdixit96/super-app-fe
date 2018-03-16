@@ -1,9 +1,34 @@
 .ItemContainer{
     display: flex;
     flex-direction: column;
-    min-width: 25%;
-    margin: 1%;
     border: 1px solid black;
     align-content: center;
-    justify-content: center;
+    margin-right: 1%;
+    margin-bottom: 1%;
+    min-height: 30%;
+    min-width: 20%;
+    padding: 1%;
+
+}
+
+.item-image{
+    align-self: center;
+}
+
+.shop-item-brand{
+    text-transform: uppercase;
+    font-size:10px;
+    color: gray;
+}
+
+.shop-item-description{
+    padding-top:2%;
+}
+
+.shop-item-box{
+    margin:3%;
+    padding-left: 15%;
+    padding-top: 15%;
+    padding-bottom: 15%;
+    background-color: rgb(244, 243, 241);
 }

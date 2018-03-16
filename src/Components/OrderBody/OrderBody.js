@@ -3,12 +3,9 @@ import Axios from 'axios';
 import PropTypes from 'prop-types';
 import './OrderBody.css';
 
-
-import BasketCategory from '../BasketCategory/BasketCatergory';
 import UnderlineHeading from '../UnderlineHeading/UnderlineHeading';
-import TableHeader from '../TableHeader/TableHeader';
+import OrderContainer from '../OrderContainer/OrderContainer';
 
-const Helpers = require('../../helpers');
 
 class OrderBody extends Component {
   constructor(props) {
@@ -20,29 +17,26 @@ class OrderBody extends Component {
     this.state = {
       orders: [],
     };
-
-    this.populateCategories = this.populateCategories.bind(this);
+    this.populateOrders = this.populateOrders.bind(this);
   }
 
   componentDidMount() {
     Axios.get('/orders').then((orderData) => {
       const orders = orderData.data.orders;
-      let cumulator = [];
-      orders.forEach((order) => {
-        cumulator = cumulator.concat(order.items);
-      });
-      const orderArray = Helpers.groupDataBasedOnKey(cumulator, 'category');
+      // let cumulator = [];
+      // orders.forEach((order) => {
+      //   cumulator = cumulator.concat(order.items);
+      // });
+      // const orderArray = Helpers.groupDataBasedOnKey(cumulator, 'category');
       this.setState({
-        orders: orderArray,
+        orders,
       });
     });
   }
 
 
-  populateCategories() {
-    if (this.state.orders.length !== 0) {
-      return Object.keys(this.state.orders).map(category => <BasketCategory category={category} items={this.state.orders[category]} />);
-    }
+  populateOrders() {
+    return this.state.orders.map(order => <OrderContainer id={order.id} date={order.createdAt} items={order.items} />);
   }
 
 
@@ -53,10 +47,7 @@ class OrderBody extends Component {
         <div className="order-subtitle">
           Past Orders(10)
         </div>
-        <TableHeader />
-
-        {this.populateCategories()}
-
+        {this.populateOrders()}
       </div>
     );
   }

@@ -7,10 +7,16 @@ class Header extends Component {
     super(props);
     Header.propTypes = {
       title: PropTypes.string,
+      onBasketClick: PropTypes.func.isRequired,
+      onOrderClick: PropTypes.func.isRequired,
+      onShopClick: PropTypes.func.isRequired,
+      numberOfItems: PropTypes.arrayOf.isRequired,
     };
+
     Header.defaultProps = {
       title: 'default',
     };
+
     this.state = {
     };
 

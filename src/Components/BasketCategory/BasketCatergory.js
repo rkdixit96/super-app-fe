@@ -20,7 +20,7 @@ class BasketCategory extends Component {
   }
 
   populateItems() {
-    return this.props.items.map(item => <BasketItem id={item.id} title={item.title} availableQuantity={item.availableQuantity} brand={item.brand} category={item.category} cost={item.cost} description={item.description} />);
+    return this.props.items.map(item => <BasketItem id={item.id} title={item.title} availableQuantity={item.availableQuantity} brand={item.brand} category={item.category} cost={item.cost} description={item.description} onDeleteItem={this.props.onDeleteItem} item={item} showButton={this.props.showButton} />);
   }
 
   render() {

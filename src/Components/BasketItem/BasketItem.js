@@ -14,7 +14,14 @@ class BasketItem extends Component {
     };
     this.state = {
     };
+
+    this.onDeleteItem = this.onDeleteItem.bind(this);
   }
+
+  onDeleteItem() {
+    this.props.onDeleteItem(this.props.item);
+  }
+
   render() {
     return (
       <div className="BasketItem" >
@@ -35,7 +42,7 @@ class BasketItem extends Component {
         <div className="item-other">
           {`Rs. ${this.props.availableQuantity * this.props.cost}`}
         </div>
-
+        {this.props.showButton && <div onClick={this.onDeleteItem}><i className="material-icons">clear</i></div>}
       </div>
     );
   }

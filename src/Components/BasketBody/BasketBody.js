@@ -20,7 +20,6 @@ class BasketBody extends Component {
 
     };
     this.state = {
-      cost: 0,
     };
 
     this.populateCategories = this.populateCategories.bind(this);
@@ -31,15 +30,18 @@ class BasketBody extends Component {
   componentDidMount() {
     this.calculateCost();
   }
+  componentWillReceiveProps() {
+    this.calculateCost();
+  }
 
 
   onCheckOut() {
-    // const items = Helpers.objectToArray(this.props.basketData);
-    Axios.post('/order', { basketData: this.props.basketData, inventoryData: this.props.inventoryData });
+    this.props.onCheckOut();
   }
 
+
   populateCategories() {
-    return Object.keys(this.props.basketData).map(category => <BasketCategory category={category} items={this.props.basketData[category]} />);
+    return Object.keys(this.props.basketData).map(category => <BasketCategory category={category} items={this.props.basketData[category]} onDeleteItem={this.props.onDeleteItem} showButton={this.props.showButton} />);
   }
 
   calculateCost() {
@@ -63,7 +65,7 @@ class BasketBody extends Component {
           {this.populateCategories()}
         </div>
         <div>
-          {this.state.cost}
+          {this.props.cost}
           <input type="button" value="Checkout" onClick={this.onCheckOut} />
         </div>
       </div>

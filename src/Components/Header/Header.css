@@ -1,11 +1,9 @@
 .Header{
     display: flex;
-    background-color:white;
-    height: 8%;
-    align-content: center;
-    padding: 2%;
+    padding: 1%;
     border: 1px solid gray;
     justify-content: space-between;
+    
 }
 
 .header-buttons{
@@ -16,19 +14,18 @@
 
 .header-title{
     font-weight: bold;
-    display: flex;
-    align-content: center;
-    
+    display: flex;   
 }
 
 .header-order{
     color: gray;
-    padding-right: 9%;
+    padding-right: 3%;
 }
 
 .header-basket{
     display: flex;
     font-size: 8px;
+    
     
 }
 
