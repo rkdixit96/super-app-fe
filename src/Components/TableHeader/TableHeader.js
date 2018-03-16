@@ -27,17 +27,17 @@ class TableHeader extends Component {
 
   render() {
     return (
-      <div className="basket-header">
-        <div className="item-description">
+      <div className={`basket-header-table ${this.props.className}`} >
+        <div className="item-description-table">
           ITEM DESCRIPTION
         </div>
-        <div className="item-other">
+        <div className="item-other-table">
           UNIT PRICE
         </div>
-        <div className="item-other">
+        <div className="item-other-table">
           QUANTITY
         </div>
-        <div className="item-other">
+        <div className="item-other-table">
           SUBTOTAL
         </div>
       </div>

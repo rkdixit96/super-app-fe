@@ -1,0 +1,39 @@
+.OrderContainer{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 6%;
+}
+
+.order-table-header{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(88, 89, 91);
+    color: white;
+    padding: 1%;
+}
+
+.order-table-data{
+    display: flex;
+    flex-direction: row;
+    padding: 1%;
+}
+
+.basket-header{
+    display: flex;
+    background-color: rgb(85, 85, 85);
+    color:white;
+    padding-top:1%;
+    padding-bottom: 1%;
+}
+
+.order-item-description{
+    width:25%;
+    padding-left: 3%;
+    display: flex;
+    flex-direction: column;
+}
+
+.order-item-other{
+    width:25%;
+    align-content: center;
+}

@@ -1,4 +1,4 @@
-.basket-header{
+.basket-header-table{
     display: flex;
     background-color: rgb(85, 85, 85);
     color:white;
@@ -6,14 +6,18 @@
     padding-bottom: 1%;
 }
 
-.item-description{
+.item-description-table{
     width:60%;
     padding-left: 3%;
     display: flex;
     flex-direction: column;
 }
 
-.item-other{
+.item-other-table{
     width:13%;
     align-content: center;
+}
+
+.blue-back{
+    background-color: rgb(92, 175, 258);
 }

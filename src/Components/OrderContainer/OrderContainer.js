@@ -18,14 +18,20 @@ class OrderContainer extends Component {
     };
     this.state = {
       orderArray: [],
+      cost: 0,
     };
     this.populateCategories = this.populateCategories.bind(this);
   }
 
   componentDidMount() {
     const orderArray = Helpers.groupDataBasedOnKey(this.props.items, 'category');
+    let cost = 0;
+    this.props.items.forEach((item) => {
+      cost += item.cost * item.availableQuantity;
+    });
     this.setState({
       orderArray,
+      cost,
     });
   }
 
@@ -40,9 +46,37 @@ class OrderContainer extends Component {
   render() {
     return (
       <div className="OrderContainer" >
-        {this.props.id}
-        {this.props.date}
-        <TableHeader />
+        <div className="order-table-header">
+          <div className="order-item-description">
+          ORDER
+          </div>
+          <div className="order-item-other">
+          ITEMS
+          </div>
+          <div className="order-item-other">
+          DATE
+          </div>
+          <div className="order-item-other">
+          AMOUNT
+          </div>
+        </div>
+        <div className="order-table-data">
+          <div className="order-item-description">
+            {this.props.id}
+          </div>
+          <div className="order-item-other">
+            {this.props.items.length}
+          </div>
+          <div className="order-item-other">
+            {this.props.date}
+          </div>
+          <div className="order-item-other">
+            {this.state.cost}
+          </div>
+        </div>
+
+
+        <TableHeader className="blue-back" />
         {this.populateCategories()}
       </div>
     );

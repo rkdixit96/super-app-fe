@@ -14,7 +14,6 @@ class App extends Component {
     super();
     this.state = {
       categorizedData: {},
-      reference: {},
       basket: {},
       numberOfItems: 0,
       page: 'shop',
@@ -37,7 +36,6 @@ class App extends Component {
       const categorizedData = Helpers.groupDataBasedOnKey(inventoryData.data, 'category');
       this.setState({
         categorizedData,
-        reference: categorizedData,
       });
     });
   }

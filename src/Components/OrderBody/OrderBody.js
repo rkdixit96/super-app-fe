@@ -47,6 +47,7 @@ class OrderBody extends Component {
         <div className="order-subtitle">
           Past Orders(10)
         </div>
+
         {this.populateOrders()}
       </div>
     );

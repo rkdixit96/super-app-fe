@@ -6,8 +6,10 @@
     margin-right: 1%;
     margin-bottom: 1%;
     min-height: 30%;
+    max-height: 30%;
     min-width: 20%;
     padding: 1%;
+    justify-content: space-between;
 
 }
 
